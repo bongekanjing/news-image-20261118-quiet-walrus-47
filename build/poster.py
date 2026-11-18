@@ -5,6 +5,8 @@ The HTML is rendered by headless Chromium at 1024x1200 and cropped to
 """
 
 import html
+
+import art
 import json
 import pathlib
 
@@ -144,6 +146,27 @@ def lead_html(item):
       </article>"""
 
 
+def art_strip_html(width=180, height=70):
+    """The three lead panels, in the map column under the map.
+
+    That column carries 264 px of map in a 660 px band, so the panels sit in
+    blank newsprint and add no page height -- the one place the layout can gain
+    a drawn picture without pushing anything off the sheet.
+    """
+    cells = []
+    for item in LEADS:
+        panel = art.panel_for(item["kicker"], width, height)
+        if not panel:
+            continue
+        cells.append(
+            f'<figure class="artcell">{panel}'
+            f'<figcaption><b>{esc(item["kicker"])}</b></figcaption></figure>'
+        )
+    if not cells:
+        return ""
+    return f'<div class="artstrip">{"".join(cells)}</div>'
+
+
 def cell_html(region, head, deck):
     """A brief: region tag over a headline. The deck rides only where it fits."""
     d = f'\n          <p class="deck">{esc(deck)}</p>' if deck else ""
@@ -174,6 +197,7 @@ def ticker_html():
 
 def build():
     leads = "".join(lead_html(x) for x in LEADS)
+    strip = art_strip_html()
     cells = "".join(cell_html_tight(*row) for row in GRID)
     css = (HERE / "poster.css").read_text(encoding="utf-8")
     world = (HERE / "world.svg").read_text(encoding="utf-8")
@@ -203,6 +227,7 @@ def build():
           <span class="key"><i></i>today&rsquo;s stories</span>
         </div>
         {world}
+        {strip}
       </div>
       <div class="leads">{leads}
       </div>
