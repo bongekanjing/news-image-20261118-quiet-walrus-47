@@ -13,7 +13,7 @@ Entry for the make.fun bounty [Sum up 18 November's world news in one image](htt
 
 `main.py` copies the committed `entry.png` to `/output/entry.png`. The program is
 deterministic and needs no network: both runs the grader makes write the same bytes
-(sha256 `2aa6bc0e32ac47077310316436c5d9807b586d0e33ed4bb2dfc23c9714622383`).
+(sha256 `b4fab9dc2030708f9cac40c87e09dc7df940d76c15bdd22b56145e208d07158b`).
 
 It first walks every PNG chunk and verifies each CRC, then checks the 1 MiB and
 1024×1024 limits from the rules, so a broken build fails loudly instead of reaching
@@ -29,7 +29,7 @@ The grader runs it as `python3 main.py` with a read-only `/bot` and a writable
 
 ## The image
 
-A dense broadsheet front page — 36 stories across every region, on news that broke
+A dense broadsheet front page — 39 stories across every region, on news that broke
 or was first reported on 18 November 2026:
 
 - **Three leads:** Xi and Putin opening APEC in Shenzhen on the eve of the first
@@ -37,11 +37,14 @@ or was first reported on 18 November 2026:
   US jets strike Qeshm; Eisenkot's ally Matan Kahana taking the Knesset speakership
   66–52.
 - **A markets ticker** under the leads.
-- **33 short briefs in three columns**, each with a region tag, a headline and a
-  one-line deck, covering Iran, Israel, Gaza, Ukraine, Russia, the EU, the UK,
-  Sudan, the Horn of Africa, Mozambique, Guinea, Uganda, Moldova, Romania, the Black
-  Sea, COP31 and Cyclone Akvan in the Bay of Bengal, America's midterms and public
-  health, LatAm growth, and the Quad, India–Japan and Nvidia.
+- **A world locator map** beside them, 20 dots on the day's flashpoints, with
+  coastline geometry drawn offline from Natural Earth by `build/mapgen.py`.
+- **36 short briefs in three columns** (12 × 3), each with a region tag and a
+  headline, covering Iran, Israel, Gaza, Ukraine, Russia, the EU, the UK, Sudan,
+  the Horn of Africa, Mozambique, Guinea, Uganda, Moldova, Romania, the Black Sea,
+  COP31 and Cyclone Akvan in the Bay of Bengal, Cyclone Xavier in the Cook Islands,
+  America's midterms and public health, LatAm growth, and the Quad, India–Japan,
+  Nvidia and Bitcoin.
 - **A black date bar** reading `WEDNESDAY, 18 NOVEMBER 2026`, so the day it sums up is
   the first thing a viewer reads, even at 300 px.
 
@@ -57,8 +60,8 @@ cd build && ./render.sh     # poster.py -> poster.html -> Chromium -> crop -> ..
 ```
 
 `build/poster.py` holds the stories and emits `poster.html`; `build/poster.css` is the
-stylesheet; `build/render.sh` screenshots the page at 1024×1200 and crops to
-1024×1024 with PIL. The page is rendered taller than the image on purpose: a
+stylesheet; `build/mapgen.py` projects Natural Earth boundaries into `build/world.svg`;
+`build/render.sh` screenshots the page at 1024×1200 and crops to 1024×1024 with PIL. The page is rendered taller than the image on purpose: a
 1024-wide viewport at `--window-size=1024,1024` leaves only ~937 px of usable height
 and silently clips the bottom band.
 
