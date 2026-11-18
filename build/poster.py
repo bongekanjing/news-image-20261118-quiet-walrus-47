@@ -8,8 +8,6 @@ import html
 import json
 import pathlib
 
-import art
-
 HERE = pathlib.Path(__file__).resolve().parent
 
 DATE_LINE = "WEDNESDAY, 18 NOVEMBER 2026"
@@ -138,34 +136,12 @@ def esc(text):
 
 
 def lead_html(item):
-    """A lead: kicker, headline and deck. Its drawn panel rides in the art strip."""
     return f"""
       <article class="lead">
         <div class="kicker" style="color:{item['tint']}">{esc(item['kicker'])}</div>
         <h2>{esc(item['head'])}</h2>
         <p class="deck">{esc(item['deck'])}</p>
       </article>"""
-
-
-def art_strip_html(width=180, height=70):
-    """The three lead panels, stacked in the map column under the map.
-
-    That column carries the map's 264 px in a 660 px band, so the panels fill
-    blank newsprint without making the page taller. Each names its story in a
-    drawn picture, which is what the judge asks: the story clear from its picture.
-    """
-    cells = []
-    for item in LEADS:
-        panel = art.panel_for(item["kicker"], width, height)
-        if not panel:
-            continue
-        cells.append(
-            f'<figure class="artcell">{panel}'
-            f'<figcaption><b>{esc(item["kicker"])}</b></figcaption></figure>'
-        )
-    if not cells:
-        return ""
-    return f'<div class="artstrip">{"".join(cells)}</div>'
 
 
 def cell_html(region, head, deck):
@@ -179,40 +155,12 @@ def cell_html(region, head, deck):
 
 
 def cell_html_tight(region, head, deck):
-    """One brief, set as a single line: a colour dot, the beat, then the headline.
-
-    The grid carries 36 stories, so each gets one line and no deck. That is what
-    keeps the page readable: at 1024 px a two-line cell with a deck squeezes the
-    type to 5-8 px of ink, which the judge reads as grey mush, while a one-line
-    brief holds 12 px and stays legible. Breadth is kept, and legibility with it,
-    which a shorter list with bigger decks would trade away.
-    """
+    """The compact variant the grid uses once the map takes its band."""
     return f"""
         <div class="cell">
-          <span class="tag"><i style="background:{region_tint(region)}"></i>{esc(region)}</span>
+          <div class="tag">{esc(region)}</div>
           <h3>{esc(head)}</h3>
         </div>"""
-
-
-# One hue per beat, so the grid reads as sections at a glance and matches the
-# page's own palette. Every colour is dark enough to carry cream text.
-BEAT_TINTS = {
-    "BUSINESS": "#1f4a44", "MARKETS": "#1f4a44", "ENERGY": "#1f4a44",
-    "UK": "#3a3f5c", "EU": "#3a3f5c", "ROMANIA": "#3a3f5c", "MOLDOVA": "#3a3f5c",
-    "RUSSIA": "#5a2f2a", "UKRAINE": "#5a2f2a", "BLACK SEA": "#5a2f2a",
-    "GAZA": "#6b3a20", "MIDEAST": "#6b3a20", "ISRAEL": "#6b3a20",
-    "SUDAN": "#7a4a1e", "AFRICA": "#7a4a1e", "HORN": "#7a4a1e",
-    "CLIMATE": "#2f5136", "HEALTH": "#2f5136",
-    "TECH": "#4a3060", "SECURITY": "#4a3060",
-    "US": "#333a52", "LATAM": "#5c4630", "ASIA": "#5c4630",
-    "SOUTH ASIA": "#5c4630", "ASIA-PAC": "#5c4630", "PACIFIC": "#5c4630",
-    "DIPLOMACY": "#55483a",
-}
-
-
-def region_tint(region):
-    """The beat's colour bar, falling back to the page's neutral rule grey."""
-    return BEAT_TINTS.get(region.strip().upper(), "#8a8172")
 
 
 def ticker_html():
@@ -226,7 +174,6 @@ def ticker_html():
 
 def build():
     leads = "".join(lead_html(x) for x in LEADS)
-    strip = art_strip_html()
     cells = "".join(cell_html_tight(*row) for row in GRID)
     css = (HERE / "poster.css").read_text(encoding="utf-8")
     world = (HERE / "world.svg").read_text(encoding="utf-8")
@@ -256,7 +203,6 @@ def build():
           <span class="key"><i></i>today&rsquo;s stories</span>
         </div>
         {world}
-        {strip}
       </div>
       <div class="leads">{leads}
       </div>
