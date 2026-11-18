@@ -1,9 +1,9 @@
 """news-image-20261118 — writes 18 November 2026's front page to /output/entry.png.
 
 The image is the front page this repository carries (entry.png, 1024x1024), built
-by build/poster.py from build/stories.json and build/poster.css and rendered with
-headless Chromium. Nothing here needs the network: the program copies the
-committed bytes, so the two runs the grader makes are byte-identical.
+by build/poster.py from the stories it holds and build/poster.css, then rendered
+with headless Chromium and cropped. Nothing here needs the network: the program
+copies the committed bytes, so the two runs the grader makes are byte-identical.
 
 The copy is validated before it is put in place — a PNG signature, a whole-chunk
 walk and the 1024x1024 limit from the rules — so a corrupted build fails loudly

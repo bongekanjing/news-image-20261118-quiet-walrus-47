@@ -1,4 +1,6 @@
 __pycache__/
 out/
 build/raw.png
+build/poster.html
+build/stories.json
 build/probe.html
