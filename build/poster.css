@@ -142,6 +142,46 @@ body {
   border-bottom: 1px solid #d6cdba;
 }
 
+.lead .art {
+  margin: 0 0 4px 0;
+  line-height: 0;
+}
+
+.lead .art svg {
+  display: block;
+  width: 100%;
+  height: 62px;
+  border-radius: 1px;
+}
+
+/* ---------- lead art strip ---------- */
+
+.artstrip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  padding-top: 6px;
+}
+
+.artcell { margin: 0; line-height: 0; }
+
+.artcell svg {
+  display: block;
+  width: 100%;
+  height: 70px;
+  border-radius: 1px;
+}
+
+.artcell figcaption {
+  line-height: 1.1;
+  padding-top: 3px;
+  font-size: 7.6px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #6b2018;
+}
+
 .lead:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
 
 .kicker {
@@ -213,36 +253,53 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   margin-top: 2px;
 }
 
 .cell {
-  padding: 2px 11px 2px 11px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 2px 9px 2px 9px;
   border-bottom: 1px solid #d6cdba;
   border-right: 1px solid #d6cdba;
 }
 
-.cell:nth-child(3n) { border-right: 0; padding-right: 0; }
-.cell:nth-child(3n + 1) { padding-left: 0; }
+.cell:nth-child(2n) { border-right: 0; padding-right: 0; }
+.cell:nth-child(2n + 1) { padding-left: 0; }
 
 .tag {
-  font-size: 7.8px;
+  flex: 0 0 58px;
+  font-size: 6.6px;
   font-weight: 700;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: #6b2018;
   margin-bottom: 0;
-  line-height: 1.25;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* the beat's colour dot: it reads as a section mark at 300 px where 6 px type
+   cannot, and adds no height */
+.tag i {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 1px;
+  margin-right: 2px;
+  vertical-align: 1px;
 }
 
 .cell h3 {
   font-family: 'Liberation Sans', sans-serif;
-  font-size: 11.4px;
-  line-height: 1.13;
-  font-weight: 700;
+  font-size: 12.6px;
+  line-height: 1.2;
+  font-weight: 400;
   margin: 0;
-  letter-spacing: -0.1px;
+  letter-spacing: -0.15px;
 }
 
 .cell .deck {
@@ -257,8 +314,8 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  padding: 4px 0 0 0;
-  font-size: 8.6px;
-  line-height: 1.35;
+  padding: 2px 0 0 0;
+  font-size: 8.2px;
+  line-height: 1.25;
   color: #55483a;
 }
