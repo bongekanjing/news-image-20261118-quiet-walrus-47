@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>WEDNESDAY, 18 NOVEMBER 2026</title>
+<style>/* Front-page stylesheet for the 18 November 2026 world-news image.
+   Rendered at 1024x1200 by headless Chromium and cropped to 1024x1024. */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #f6f2e9;
+}
+
+body {
+  width: 1024px;
+  color: #14110d;
+  font-family: 'Liberation Sans', 'FreeSans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  width: 1024px;
+  padding: 0 26px 0 26px;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead { padding-top: 9px; }
+
+.rule { background: #14110d; }
+.rule.thin { height: 2px; }
+.rule.thick { height: 6px; }
+
+.wordmark {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 5px 0 6px 0;
+}
+
+.paper {
+  font-family: 'Liberation Serif', 'FreeSerif', serif;
+  font-size: 43px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.edition {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6b2018;
+  padding-bottom: 3px;
+  max-width: 320px;
+  text-align: right;
+  line-height: 1.5;
+}
+
+.dateline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  background: #14110d;
+  color: #f6f2e9;
+  padding: 7px 10px 8px 10px;
+}
+
+.date {
+  font-family: 'Liberation Serif', serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #f6f2e9;
+}
+
+.strap {
+  font-family: 'Liberation Serif', serif;
+  font-size: 12.5px;
+  font-style: italic;
+  color: #e6dcc8;
+}
+
+/* ---------- leads ---------- */
+
+.leads {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 0;
+  border-top: 1px solid #14110d;
+  border-bottom: 1px solid #14110d;
+  margin-top: 2px;
+}
+
+.lead {
+  padding: 8px 13px 9px 13px;
+  border-right: 1px solid #b9ae9a;
+}
+
+.lead:first-child { padding-left: 0; }
+.lead:last-child { border-right: 0; padding-right: 0; }
+
+.kicker {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.lead h2 {
+  font-family: 'Liberation Serif', serif;
+  font-size: 21px;
+  line-height: 1.06;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.2px;
+}
+
+.deck {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.36;
+  color: #2e2820;
+}
+
+.lead .deck { font-size: 10px; line-height: 1.36; color: #3a332a; }
+
+/* ---------- markets ticker ---------- */
+
+.ticker {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #14110d;
+  padding: 5px 0 6px 0;
+}
+
+.tick {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding-right: 10px;
+  border-right: 1px solid #c9bfab;
+}
+
+.tick:last-child { border-right: 0; padding-right: 0; }
+
+.tick b {
+  font-size: 8.2px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #55483a;
+}
+
+.tick span {
+  font-family: 'Liberation Serif', serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tick em {
+  font-size: 8.4px;
+  font-style: normal;
+  color: #6b2018;
+  font-weight: 700;
+}
+
+/* ---------- news grid ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 2px;
+}
+
+.cell {
+  padding: 4px 11px 5px 11px;
+  border-bottom: 1px solid #d6cdba;
+  border-right: 1px solid #d6cdba;
+}
+
+.cell:nth-child(3n) { border-right: 0; padding-right: 0; }
+.cell:nth-child(3n + 1) { padding-left: 0; }
+
+.tag {
+  font-size: 8.2px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b2018;
+  margin-bottom: 1px;
+}
+
+.cell h3 {
+  font-family: 'Liberation Sans', sans-serif;
+  font-size: 11.6px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.1px;
+}
+
+.cell .deck {
+  font-size: 9px;
+  line-height: 1.22;
+  color: #4a4136;
+}
+
+/* ---------- footer ---------- */
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 6px 0 0 0;
+  font-size: 8.6px;
+  line-height: 1.35;
+  color: #55483a;
+}
+</style></head>
+<body>
+  <div class="sheet">
+    <header class="masthead">
+      <div class="rule thin top"></div>
+      <div class="wordmark">
+        <span class="paper">THE WORLD TODAY</span>
+        <span class="edition">Front page · 36 stories · every region</span>
+      </div>
+      <div class="rule thick"></div>
+      <div class="dateline">
+        <span class="date">WEDNESDAY, 18 NOVEMBER 2026</span>
+        <span class="strap">A day of summits, strikes and storms</span>
+      </div>
+    </header>
+
+    <section class="leads">
+      <article class="lead">
+        <div class="kicker" style="color:#8c1c13">APEC · SHENZHEN</div>
+        <h2>Xi and Putin open summit on the eve of a first three-way meeting with Trump</h2>
+        <p class="deck">The Chinese and Russian presidents met in Shenzhen on Wednesday before Thursday's trilateral. Xi urged support for the WTO and free trade; Putin called sanctions “a thing of the past”. Trump was in Manila for ASEAN and the Quad, and said he hoped to meet Kim Jong Un in China.</p>
+      </article>
+      <article class="lead">
+        <div class="kicker" style="color:#8c1c13">GULF · IRAN</div>
+        <h2>Iranian drones hit US bases in Kuwait and Bahrain; US jets strike Qeshm</h2>
+        <p class="deck">Iran's army said it targeted Patriot batteries at Ali Al Salem; sirens sounded in Bahrain for a third time in five days. US warplanes hit an IRGC missile site on Qeshm Island. Two tankers burned in the Strait of Hormuz after mines, and Qatar opened new talks with Tehran.</p>
+      </article>
+      <article class="lead">
+        <div class="kicker" style="color:#8c1c13">ISRAEL · KNESSET</div>
+        <h2>Eisenkot's ally takes the speaker's chair, 66 to 52</h2>
+        <p class="deck">Matan Kahana beat Likud's candidate after a seven-hour debate. Neither bloc can reach 61 seats, so the 19 Arab-led and 13 Haredi seats now decide who governs; Eisenkot has until 6 December to form a government.</p>
+      </article>
+    </section>
+    <section class="ticker"><div class="tick"><b>S&amp;P 500</b><span>7,341</span><em>−1.0%</em></div><div class="tick"><b>Nasdaq 100</b><span>27,002</span><em>−0.7%</em></div><div class="tick"><b>Brent</b><span>$92.52</span><em>−0.7%</em></div><div class="tick"><b>Gold</b><span>$3,792</span><em>−1.5%</em></div><div class="tick"><b>Bitcoin</b><span>$64,320</span><em>−0.8%</em></div><div class="tick"><b>US 10-year</b><span>above 5%</span><em>27th day</em></div></section>
+    <section class="grid">
+        <div class="cell">
+          <div class="tag">BUSINESS</div>
+          <h3>Nvidia doubles revenue to $115.8bn in first results without Huang</h3>
+          <p class="deck">Board rules out his return; shares up 5% after hours</p>
+        </div>
+        <div class="cell">
+          <div class="tag">UK</div>
+          <h3>Inflation climbs to 3.6%, the highest in a year</h3>
+          <p class="deck">Petrol and diesel prices drove the rise</p>
+        </div>
+        <div class="cell">
+          <div class="tag">MARKETS</div>
+          <h3>Gold falls below $3,800 an ounce, a one-year low</h3>
+          <p class="deck">Strong dollar and rate-rise bets; silver down 2.6%</p>
+        </div>
+        <div class="cell">
+          <div class="tag">CLIMATE</div>
+          <h3>COP31 ministers take over a draft split on fossil fuels and finance</h3>
+          <p class="deck">Antalya talks must close by Friday</p>
+        </div>
+        <div class="cell">
+          <div class="tag">SOUTH ASIA</div>
+          <h3>Cyclone Akvan becomes a severe storm and crawls toward Andhra Pradesh</h3>
+          <p class="deck">Landfall near noon on 20 November; red alerts for six districts</p>
+        </div>
+        <div class="cell">
+          <div class="tag">UKRAINE</div>
+          <h3>Germany calls US criticism of Kyiv's deep strikes “quite stupid”</h3>
+          <p class="deck">Row at a NATO meeting; UK sends 1,000+ air-defence missiles</p>
+        </div>
+        <div class="cell">
+          <div class="tag">RUSSIA</div>
+          <h3>Moscow asks NATO to pull its forces back to where they stood in 1997</h3>
+          <p class="deck">Kallas calls the demand “absurd”; EU drafts new sanctions</p>
+        </div>
+        <div class="cell">
+          <div class="tag">EU</div>
+          <h3>Brussels begins work on sanctions aimed at Russian banks and the shadow fleet</h3>
+          <p class="deck">Talks with member states started this week</p>
+        </div>
+        <div class="cell">
+          <div class="tag">GAZA</div>
+          <h3>Board of Peace tells the UN Security Council the ceasefire could collapse</h3>
+          <p class="deck">WFP seeks unobstructed aid as a fourth winter floods the camps</p>
+        </div>
+        <div class="cell">
+          <div class="tag">MIDEAST</div>
+          <h3>Britain sanctions eight West Bank settlement firms and an aid-blocking group</h3>
+          <p class="deck">First package since London's September policy reset</p>
+        </div>
+        <div class="cell">
+          <div class="tag">SUDAN</div>
+          <h3>UN counts 2,230 civilians killed since January, 1,630 of them by drones</h3>
+          <p class="deck">Türk says the attacks may amount to war crimes</p>
+        </div>
+        <div class="cell">
+          <div class="tag">AFRICA</div>
+          <h3>Mozambique puts opposition leader Mondlane on trial over post-election unrest</h3>
+          <p class="deck">He denies inciting violence and faces up to 24 years</p>
+        </div>
+        <div class="cell">
+          <div class="tag">HORN</div>
+          <h3>Fighting flares again on the Ethiopia–Eritrea border near Badme</h3>
+          <p class="deck">Fears of a wider war over Red Sea access</p>
+        </div>
+        <div class="cell">
+          <div class="tag">AFRICA</div>
+          <h3>Guinea jails 224 people over illegal gold mining in Siguiri</h3>
+          <p class="deck">10 killed in clashes; 1,200 miners held this month</p>
+        </div>
+        <div class="cell">
+          <div class="tag">AFRICA</div>
+          <h3>Uganda's Besigye is too ill to stand trial, his wife says</h3>
+          <p class="deck">Byanyima says he cannot walk or speak freely in custody</p>
+        </div>
+        <div class="cell">
+          <div class="tag">MOLDOVA</div>
+          <h3>Chișinău shuts its airspace for 36 minutes as a Shahed drone nears</h3>
+          <p class="deck">Police logged reports of explosions</p>
+        </div>
+        <div class="cell">
+          <div class="tag">ENERGY</div>
+          <h3>Equinor detects a cyberattack on its IT systems; output is unaffected</h3>
+          <p class="deck">No sign of data theft, the Norwegian group says</p>
+        </div>
+        <div class="cell">
+          <div class="tag">BLACK SEA</div>
+          <h3>Fifteen merchant ships hit off Romania and Bulgaria since 5 October</h3>
+          <p class="deck">34 seafarers dead or missing; a gas carrier sinks</p>
+        </div>
+        <div class="cell">
+          <div class="tag">TECH</div>
+          <h3>California calls robotaxis an “imminent hazard”; Waymo halts freeway rides</h3>
+          <p class="deck">DMV order follows repeated construction-zone incursions</p>
+        </div>
+        <div class="cell">
+          <div class="tag">SECURITY</div>
+          <h3>Java4Shell reaches Jira, Jenkins and Keycloak; CISA says patch now</h3>
+          <p class="deck">A critical flaw in the world's third-most-used language</p>
+        </div>
+        <div class="cell">
+          <div class="tag">SECURITY</div>
+          <h3>FBI warns an AI tool is automating break-ins at companies worldwide</h3>
+          <p class="deck">ARTEX reaches privileged access in under three hours</p>
+        </div>
+        <div class="cell">
+          <div class="tag">TECH</div>
+          <h3>OpenAI gives NATO agencies its Daybreak cyber models</h3>
+          <p class="deck">Up to 300bn tokens a month through the NCIA</p>
+        </div>
+        <div class="cell">
+          <div class="tag">HEALTH</div>
+          <h3>The US loses its measles elimination status after 26 years</h3>
+          <p class="deck">Worst outbreak since 1991, health authorities say</p>
+        </div>
+        <div class="cell">
+          <div class="tag">HEALTH</div>
+          <h3>Drug-resistant Klebsiella blood infections in the EU rise 72% since 2019</h3>
+          <p class="deck">Against a target of a 5% cut, the ECDC reports</p>
+        </div>
+        <div class="cell">
+          <div class="tag">US</div>
+          <h3>Peltola beats Sullivan in Alaska, the last midterm race to be called</h3>
+          <p class="deck">A Democratic gain in a state Trump carried twice</p>
+        </div>
+        <div class="cell">
+          <div class="tag">US</div>
+          <h3>White House withdraws its FDA nominee a day before the Senate vote</h3>
+          <p class="deck">Overton's exit leaves the agency under an acting head</p>
+        </div>
+        <div class="cell">
+          <div class="tag">US</div>
+          <h3>Trump asks Congress for $50.1bn to modernise air traffic control</h3>
+          <p class="deck">After last week's nationwide ground stop</p>
+        </div>
+        <div class="cell">
+          <div class="tag">LATAM</div>
+          <h3>Brazil's Senate votes on the last changes to the fiscal package</h3>
+          <p class="deck">Brasília also weighs ending Enel SP's contract</p>
+        </div>
+        <div class="cell">
+          <div class="tag">LATAM</div>
+          <h3>Chile reports third-quarter growth as President Kast flies to meet Xi</h3>
+          <p class="deck">Copper exporter watches APEC and Chinese demand</p>
+        </div>
+        <div class="cell">
+          <div class="tag">ASIA</div>
+          <h3>India and Japan hold 2+2 talks in Tokyo on defence and maritime security</h3>
+          <p class="deck">Singh and Jaishankar meet Koizumi and Motegi</p>
+        </div>
+        <div class="cell">
+          <div class="tag">ASIA-PAC</div>
+          <h3>Quad leaders agree joint drills and AI supply rules in Manila</h3>
+          <p class="deck">Trump, Albanese, Modi and Takaichi met for the first time since 2024</p>
+        </div>
+        <div class="cell">
+          <div class="tag">CLIMATE</div>
+          <h3>UK advisers warn that weakening the electric-car mandate breaks climate targets</h3>
+          <p class="deck">Carmakers lobbied to cut the 2030 goal to 50%</p>
+        </div>
+        <div class="cell">
+          <div class="tag">MARKETS</div>
+          <h3>Bitcoin trades near $64,300 as Brent holds at $92.52 a barrel</h3>
+          <p class="deck">US 10-year yield above 5% for a 27th day this year</p>
+        </div>
+    </section>
+    <footer class="foot">
+      <span>Compiled from reporting by AP, Reuters, Anadolu, BBC, The Guardian, UN News, IMD and the ECDC.</span>
+      <span>Every story broke, or was first reported, on Wednesday, 18 November 2026.</span>
+    </footer>
+  </div>
+</body></html>
