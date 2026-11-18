@@ -37,7 +37,7 @@ LEADS = [
     },
     {
         "kicker": "ISRAEL · KNESSET",
-        "head": "Eisenkot's ally takes the speaker's chair, 66 to 52",
+        "head": "Eisenkot's ally takes the speaker's chair, 66\u201352",
         "deck": (
             "Matan Kahana beat Likud's candidate after a seven-hour debate. Neither bloc can "
             "reach 61 seats, so the 19 Arab-led and 13 Haredi seats now decide who governs; "
@@ -113,6 +113,12 @@ GRID = [
      "Carmakers lobbied to cut the 2030 goal to 50%"),
     ("MARKETS", "Bitcoin trades near $64,300 as Brent holds at $92.52 a barrel",
      "US 10-year yield above 5% for a 27th day this year"),
+    ("ROMANIA", "A magnitude 5.7 quake shakes Vrancea county; no deaths reported",
+     "Felt in Bucharest and as far as Chi\u0219in\u0103u"),
+    ("DIPLOMACY", "Pretoria summons Nigeria's envoy over a credentials row",
+     "Fani-Kayode told to take his complaint to foreign ministries"),
+    ("PACIFIC", "Cyclone Xavier bears down on Manihiki as the Cook Islands brace",
+     "Category 3 winds; a state of emergency in the northern group"),
 ]
 
 TICKER = [
@@ -139,12 +145,21 @@ def lead_html(item):
 
 
 def cell_html(region, head, deck):
-    d = f'<p class="deck">{esc(deck)}</p>' if deck else ""
+    """A brief: region tag over a headline. The deck rides only where it fits."""
+    d = f'\n          <p class="deck">{esc(deck)}</p>' if deck else ""
+    return f"""
+        <div class="cell">
+          <div class="tag">{esc(region)}</div>
+          <h3>{esc(head)}</h3>{d}
+        </div>"""
+
+
+def cell_html_tight(region, head, deck):
+    """The compact variant the grid uses once the map takes its band."""
     return f"""
         <div class="cell">
           <div class="tag">{esc(region)}</div>
           <h3>{esc(head)}</h3>
-          {d}
         </div>"""
 
 
@@ -159,8 +174,9 @@ def ticker_html():
 
 def build():
     leads = "".join(lead_html(x) for x in LEADS)
-    cells = "".join(cell_html(*row) for row in GRID)
+    cells = "".join(cell_html_tight(*row) for row in GRID)
     css = (HERE / "poster.css").read_text(encoding="utf-8")
+    world = (HERE / "world.svg").read_text(encoding="utf-8")
     total = len(GRID) + len(LEADS)
     doc = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>{DATE_LINE}</title>
@@ -180,7 +196,16 @@ def build():
       </div>
     </header>
 
-    <section class="leads">{leads}
+    <section class="band">
+      <div class="map">
+        <div class="maphead">
+          <span class="maplabel">Where the day happened</span>
+          <span class="key"><i></i>today&rsquo;s stories</span>
+        </div>
+        {world}
+      </div>
+      <div class="leads">{leads}
+      </div>
     </section>
     {ticker_html()}
     <section class="grid">{cells}
